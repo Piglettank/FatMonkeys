@@ -77,6 +77,7 @@ void AFatMonkeysCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 }
 
 
+
 void AFatMonkeysCharacter::OnResetVR()
 {
 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
@@ -131,4 +132,14 @@ void AFatMonkeysCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+void AFatMonkeysCharacter::NotifyHit(UPrimitiveComponent * MyComp, AActor * Other, UPrimitiveComponent * OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult & Hit)
+{
+	//if (!Other->IsA(AFatMonkeysCharacter::StaticClass())) { return; }
+	//if (FVector::DotProduct((HitLocation - GetActorLocation()), -FVector::UpVector) < 0) { return; }
+	//FVector LaunchVel = FVector(0, 0, 2000);
+	//UE_LOG(LogTemp, Warning, TEXT("Launch Vel: %s"), *LaunchVel.ToString());
+
+	//LaunchCharacter(LaunchVel, true, true);
 }

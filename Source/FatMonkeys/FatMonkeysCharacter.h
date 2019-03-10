@@ -30,6 +30,10 @@ public:
 	float BaseLookUpRate;
 
 protected:
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float LaunchBaseSpeed = 200;
+
+protected:
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();
@@ -62,6 +66,9 @@ protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
+
+	UFUNCTION()
+	void NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
 
 public:
 	/** Returns CameraBoom subobject **/
